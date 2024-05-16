@@ -1,0 +1,37 @@
+
+<html>
+<head>
+   
+    <title>Calculadora de Troco</title>
+</head>
+<body>
+    <h1>Calculadora de Troco</h1>
+    <label for="precoProduto">Preço do Produto:</label>
+    <input type="number" id="precoProduto"><br><br>
+    <label for="valorPago">Valor Pago:</label>
+    <input type="number" id="valorPago"><br><br>
+    <button onclick="calcularTroco()">Calcular Troco</button><br><br>
+    <div id="troco"></div>
+
+    <script>
+        function calcularTroco() {
+            // Obter os valores do input
+            var precoProduto = parseFloat(document.getElementById('precoProduto').value);
+            var valorPago = parseFloat(document.getElementById('valorPago').value);
+
+            // Verificar se o valor pago é suficiente
+            if (valorPago < precoProduto) {
+                alert('O valor pago é menor que o preço do produto!');
+                return;
+            }
+
+            // Calcular o troco
+            var troco = valorPago - precoProduto;
+
+            // Exibir o troco
+            document.getElementById('troco').innerText = 'Troco: R$ ' + troco.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+
